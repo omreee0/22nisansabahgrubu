@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.con-footer {
+    position: absolute;
+    bottom: -350px;
+    background-color: rgba(0, 0, 0, 0.700);
+}
+</style>
+
+<div class="hero-image">
+    <div class="container pt-5">
+        <form method="POST" class="w-50 m-auto border border-1 p-3">
+            <h2 class="text-white text-center">{{profile.isim}},Profili silmek istediğine emin misin?</h2>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sil</button>
+            <button class="btn btn-primary">
+                <a class="text-decoration-none text-white" href="{% url 'profiles' %}">İptal</a>
+            </button>
+        </form>
+    </div>
+
+{% include "includes/_footer.html" %}
+</div>
+{% endblock content %}

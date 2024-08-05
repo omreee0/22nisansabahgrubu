@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<div class="hero-image">
+    <div class="container pt-5">
+        <form method="POST" enctype="multipart/form-data" class="w-50 m-auto border border-1 p-3">
+            {% csrf_token %}
+            <h2 class="text-secondary text-center">{{profile.isim}},Profilini Düzenle</h2>
+            <div>
+                <label class="text-white">İsim:</label>
+                {{form.isim}}
+            </div>
+            <div>
+                <label class="text-white" class="mt-2">Resim:</label>
+                <input type="file" class="form-control" name="resim">
+            </div>
+            <button type="submit" class="btn btn-outline-warning my-3">Kaydet</button>
+            <a class="btn btn-outline-info" href="{% url 'profiles' %}">İptal</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

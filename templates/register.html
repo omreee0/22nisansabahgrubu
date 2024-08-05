@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div class="hero-image pt-4">
+        <div class="container">
+            <form method="POST" enctype="multipart/form-data" class="w-50 m-auto border border-1 text-light p-3 rounded-2">
+                <h2 class="text-danger text-center fw-bold p-3 w-75 m-auto mb-3 ">Kullanıcı Kayıt Formu</h2>
+                {% csrf_token %}
+                {% comment %} {{form}} {% endcomment %}
+
+                <label>Kullanıcı Adı:</label>
+                <input type="text" name="kullaniciAdi" class="form-control mt-1 mb-2" placeholder="Kullanıcı Adı">
+
+                <label>İsim:</label>
+                <input type="text" name="isim" class="form-control mt-1 mb-2" placeholder="İsim">
+
+                <label>Soyisim:</label>
+                <input type="text" name="soyisim" class="form-control mt-1 mb-2" placeholder="Soyisim">
+
+                <label>Email:</label>
+                <input type="email" name="email" class="form-control mt-1 mb-2" placeholder="Email">
+
+                <label>Resim:</label>
+                <input type="file" name="resim" class="form-control mt-1 mb-2">
+
+                <label>Telefon Numarası:</label>
+                <input type="tel" name="tel" class="form-control mt-1 mb-2" placeholder="Telefon Numarası">
+
+                <label>Doğum Tarihi:</label>
+                <input type="date" name="dogum" class="form-control mt-1 mb-2" placeholder="Doğum Tarihi">
+
+                <label>Şifre:</label>
+                <input type="password" name="sifre1" class="form-control mt-1 mb-2" placeholder="Şifre">
+
+                <label>Şifre Onay:</label>
+                <input type="password" name="sifre2" class="form-control mt-1 mb-2" placeholder="Şifre Onay">
+
+                <div class="text-center">
+                    <input type="submit" value="Kayıt Ol" class="btn btn-danger mt-3 mb-2"><br>
+                    <a class="text-decoration-none text-white" href="{% url 'login' %}">Zaten hesabın var mı?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>

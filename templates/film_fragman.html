@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container py-5">
+        <h2 class="text-warning text-center fw-bold border-bottom border-2 border-secondary mb-4">{{film.isim}} Fragmanı</h2>
+        <div class="row">
+            <div class="col-10 m-auto">
+                <video width="100%" controls src="{{film.video.url}}"></video>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-12 text-center">
+                <a class="btn btn-secondary" href="{% url 'film_detay' film.id %}">Geri Dön</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

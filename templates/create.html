@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    {% block content %}
+    <div class="hero-image d-flex justify-content-center align-items-center">
+        <div style="height: 400px;" class="container p-4">
+
+            <form style="height: 100%; position: relative;" enctype="multipart/form-data" method="POST" class="w-50 m-auto border border-1 border-secondary p-3 text-white">
+                <h2 class="text-warning text-center fw-bold">Profil Oluştur</h2>
+                {% csrf_token %}
+                <label class="text-secondary fw-bold mt-4">İsim :</label>
+                {{form.isim}}
+
+                <label class="text-secondary fw-bold">Profil Resmi:</label>
+                {{form.resim}}
+
+                <div class="text-center">
+                    <input type="submit" class="btn btn-outline-warning mt-3" value="Oluştur">
+                    <a class="btn btn-outline-danger mt-3" href="{% url 'profiles' %}">Vazgeç</a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
